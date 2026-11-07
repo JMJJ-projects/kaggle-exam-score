@@ -1,0 +1,16 @@
+name: smoke-test
+
+on: [push, pull_request]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy pandas "scikit-learn>=1.4" xgboost
+      - run: python make_synthetic_data.py data_synthetic
+      - run: python train.py --data data_synthetic --folds 3
+      - run: python ablation.py --data data_synthetic --folds 3

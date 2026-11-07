@@ -1,0 +1,6 @@
+data/
+outputs/
+data_synthetic/
+__pycache__/
+*.csv
+.ipynb_checkpoints/

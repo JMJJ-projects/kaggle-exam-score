@@ -1,0 +1,5 @@
+numpy
+pandas
+scikit-learn>=1.4
+xgboost>=2.0
+pytabkit          # RealMLP; installs PyTorch. Optional: train.py skips RealMLP if missing
